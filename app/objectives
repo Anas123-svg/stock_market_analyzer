@@ -1,0 +1,36 @@
+### Objectives for Stock Price Prediction and Analysis
+
+---
+
+1. Define Objectives
+
+A. Hypothesis Analysis
+- Identify specific hypotheses to test, such as:
+    - The effect of trading volume on stock prices
+    - The role of moving averages in price trends
+
+B. Price Prediction
+- Predict the next session's stock price using real-time data.
+
+---
+
+2. Gather and Process Data
+
+A. Collect Real-Time Data
+- Historical Prices: Fetch the following data for stock analysis:
+    - Open, high, low, and close prices
+    - Trading volume
+
+- Indicators: Gather essential technical indicators, including:
+    - Moving Averages (MA)
+    - Relative Strength Index (RSI)
+    - Bollinger Bands
+
+    - Bollinger Bands: Utilize this indicator to identify sharp, short-term price movements and potential entry and exit points.
+
+    - Relative Strength Index (RSI):
+        - Calculate the difference between consecutive values in the close column of the DataFrame.
+        - If today's price is higher than yesterday's price, the difference is considered a gain.
+        - If today's price is lower than yesterday's price, the difference is considered a loss.
+
+---
