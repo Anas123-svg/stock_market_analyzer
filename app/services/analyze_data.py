@@ -1,12 +1,12 @@
 import pandas as pd
-from app.schemas.stock_schema import StockRequest, StockResponse,BollingerBands
 from app.services.preprocess_data import preprocess_data
 from app.utils.data_fetcher import fetch_stock_data
 from app.utils.indicators.bollinger_bands import calculate_bollinger_bands
 from app.utils.indicators.ema import calculate_ema
 from app.utils.indicators.rsi import calculate_rsi
-
-
+from app.schemas.stock_request import StockRequest
+from app.schemas.stock_response import StockResponse
+from app.schemas.bolligner_band import BollingerBands
 def analyze_stock(request: StockRequest):
     try:
         raw_data = fetch_stock_data(

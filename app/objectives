@@ -4,13 +4,14 @@
 
 1. Define Objectives
 
-A. Hypothesis Analysis
+
+A. Price Prediction
+- Predict the next session's stock price using real-time data.
+
+B. Hypothesis Analysis (secondary part)
 - Identify specific hypotheses to test, such as:
     - The effect of trading volume on stock prices
     - The role of moving averages in price trends
-
-B. Price Prediction
-- Predict the next session's stock price using real-time data.
 
 ---
 
