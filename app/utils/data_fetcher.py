@@ -1,7 +1,8 @@
 import requests
+import httpx
 import pandas as pd
 
-def fetch_stock_data(ticker: str, start_date: str, end_date: str, api_key: str):
+async def fetch_stock_data(ticker: str, start_date: str, end_date: str, api_key: str):
     url = f"https://api.polygon.io/v2/aggs/ticker/{ticker}/range/1/day/{start_date}/{end_date}"
     params = {
         "adjusted": "true",
@@ -9,7 +10,8 @@ def fetch_stock_data(ticker: str, start_date: str, end_date: str, api_key: str):
         "apiKey": api_key,
     }
     
-    response = requests.get(url, params=params)
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, params=params)
     
     if response.status_code == 200:
         data = response.json()

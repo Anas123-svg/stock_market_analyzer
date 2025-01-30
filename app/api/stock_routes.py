@@ -6,7 +6,7 @@ from app.services.analyze_data import analyze_stock
 router = APIRouter()
 
 @router.post("/analyze", response_model=StockResponse)
-def analyze(request: StockRequest):
+async def analyze(request: StockRequest):
     return analyze_stock(request)
 
 

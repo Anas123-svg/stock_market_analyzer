@@ -7,9 +7,9 @@ from app.utils.indicators.rsi import calculate_rsi
 from app.schemas.stock_request import StockRequest
 from app.schemas.stock_response import StockResponse
 from app.schemas.bolligner_band import BollingerBands
-def analyze_stock(request: StockRequest):
+async def analyze_stock(request: StockRequest):
     try:
-        raw_data = fetch_stock_data(
+        raw_data = await fetch_stock_data(
             ticker=request.ticker,
             start_date=request.start_date,
             end_date=request.end_date,
@@ -17,25 +17,25 @@ def analyze_stock(request: StockRequest):
         )
         print(raw_data)
         
-        processed_data = preprocess_data(raw_data)
+        processed_data =preprocess_data(raw_data)
         print("processed_data")
         print(processed_data)
         bollinger_bands = {}
         try:
-            bollinger_bands = calculate_bollinger_bands(processed_data)
+            bollinger_bands =calculate_bollinger_bands(processed_data)
             print("bollinger_bands")
             print(bollinger_bands)
         except Exception as e:
             print(f"bollinger Error: {e}")
             
         try:
-            ema = calculate_ema(processed_data, span=20)
+            ema =calculate_ema(processed_data, span=20)
             print("ema")
             print(ema)
         except Exception as e:
             print(f"ema Error: {e}")
 
-        rsi_data = calculate_rsi(processed_data)
+        rsi_data =calculate_rsi(processed_data)
         print("RSI")
         print(rsi_data)
 
