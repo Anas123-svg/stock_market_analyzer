@@ -7,6 +7,8 @@ class StockResponse(BaseModel):
     bollinger_bands: BollingerBands
     ema: List[float]
     processed_data: List[Dict[str, float]]
+    rsi: List[float]
+    option_suggestion: str
     
 
 

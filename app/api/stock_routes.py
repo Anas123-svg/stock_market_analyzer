@@ -7,7 +7,8 @@ router = APIRouter()
 
 @router.post("/analyze", response_model=StockResponse)
 async def analyze(request: StockRequest):
-    return analyze_stock(request)
+    response = await analyze_stock(request)
+    return response
 
 
 

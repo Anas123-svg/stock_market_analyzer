@@ -9,4 +9,8 @@ def calculate_rsi(data: pd.DataFrame, window: int = 14):
 
     rs = gain / loss
     data['rsi'] = 100 - (100 / (1 + rs))
+    
+    # Replace NaN with None to prevent JSON serialization issues
+    data['rsi'] = data['rsi'].where(data['rsi'].notna(), None)
+    
     return data
