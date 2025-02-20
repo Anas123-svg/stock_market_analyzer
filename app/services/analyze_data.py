@@ -26,30 +26,22 @@ async def analyze_stock(request: StockRequest):
             end_date=request.end_date,
             api_key=request.api_key
         )
-        print(raw_data)
         
         processed_data =preprocess_data(raw_data)
-        print("processed_data")
-        print(processed_data)
         bollinger_bands = {}
         try:
             bollinger_bands =calculate_bollinger_bands(processed_data)
-            print("bollinger_bands")
-            print(bollinger_bands)
         except Exception as e:
             print(f"bollinger Error: {e}")
             
         try:
             ema =calculate_ema(processed_data, span=20)
-            print("ema")
-            print(ema)
         except Exception as e:
             print(f"ema Error: {e}")
             
             
         try:
             rsi_data =calculate_rsi(processed_data)
-            print("RSI")
             print(f"rsi_data {rsi_data}" )
         except Exception as e:
             print(f"rsi Error: {e}")
